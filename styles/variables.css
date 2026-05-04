@@ -1,0 +1,24 @@
+:root {
+  --charcoal: rgba(54, 53, 52, 1);
+  --dark-orange: rgba(231, 108, 31, 1);
+  --white: rgba(255, 255, 255, 1);
+  --antique-white: rgba(253, 234, 220, 1);
+  --peach:rgba(250, 202, 172, 1);
+
+  --font-size-xsmall: 16x;
+  --font-size-small: 20px;
+  --font-size-base: 24px;
+  --font-size-large: 28px;
+  --font-size-xlarge: 32px;
+  --font-size-mxlarge: 48px;
+  --font-size-xxlarge: 56px;
+
+  --spacing-xsmall: 8px;
+  --spacing-small: 12px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  --spacing-xlarge: 32px;
+  --spacing-xxlarge: 40px;
+  --spacing-xxxlarge: 56px;
+  --content-lock: 1440px;
+}

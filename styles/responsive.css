@@ -1,0 +1,18 @@
+@media (max-width: 425px) {
+  .background-img {
+    height: 280px; /* Kürzere Höhe auf kleinen Bildschirmen */
+    min-height: 200px;
+  }
+
+  .top-images {
+    height: 50vh;
+  }
+
+  .burger-img {
+    height: 140px; /* Kleineres Logo auf kleinen Bildschirmen */
+    top: 210px;
+    left: max(50% - 70px, 2rem);
+  }
+}
+
+

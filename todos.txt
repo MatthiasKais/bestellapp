@@ -1,0 +1,4 @@
+bauen des header templates
+    +in json noch bild einfügen
+
+bauen des templates der gerichte
