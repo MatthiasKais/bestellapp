@@ -7,16 +7,16 @@
 }
 @font-face {
     font-display: swap;
-    font-family:"Palanqui";
+    font-family:"Palanqui-Medium";
     font-style: Medium;
     src: url("../src/Palanquin-Medium.ttf") format("woff2");
 }
 
 @font-face {
     font-display: swap;
-    font-family:"Palanqui" ;
-    font-style: SemiBold;
-    src: url("../src/Palanquin-SemiBold.ttf") format("woff2");
+    font-family:"Palanqui-SemiBold" ;
+    font-style: normal;
+    src: url("../src/Palanquin/Palanquin-SemiBold.ttf") format("woff2");
 }
 
 @font-face {

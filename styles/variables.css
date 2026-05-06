@@ -21,4 +21,7 @@
   --spacing-xxlarge: 40px;
   --spacing-xxxlarge: 56px;
   --content-lock: 1440px;
+
+  --border-radius-small: 12px;
+  --border-radius-xxlarge: 40px;
 }
