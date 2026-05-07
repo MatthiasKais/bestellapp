@@ -2,6 +2,7 @@ export const menu = {
   "category": [
     {
       "name": "Burger & Sandwiches",
+      "headerimage": "assets/icons/burgerhouse_burger_logo.svg",
       "dishes": [
         {
           "name": "Veggie mushroom black burger",
@@ -35,6 +36,7 @@ export const menu = {
     },
         {
       "name": "Pizza",
+      "headerimage":"assets/icons/burgerhouse_pizza_logo.svg",
       "dishes": [
         {
           "name": "Margherita",
@@ -68,6 +70,7 @@ export const menu = {
     },
     {
       "name": "Salad",
+      "headerimage":"assets/icons/burgerhouse_salat_logo.svg",
       "dishes": [
         {
           "name": "Warm beef arugula salad",
@@ -91,7 +94,7 @@ export const menu = {
           "amount": 0,
         },
         {
-          "name": "egan green salad with tofu",
+          "name": "Vegan green salad with tofu",
           "description": "Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame, Radishes, Bittercress, Tofu, Peanuts",
           "price": 14.90,
           "image": "assets/imgs/vegan_green_salad_with_tofu.png",
