@@ -1,4 +1,4 @@
-bauen des header templates
-    +in json noch bild einfügen
+To-Dos
 
-bauen des templates der gerichte
++Vorlage für "Added 1" 
++Local Storage einbauen

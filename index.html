@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./styles/assets.css" />
     <script type="module" src="./scripts.js"></script>
     <script type="module" src="./scripts/render.js"></script>
+    <script type="module" src="./scripts/templates.js"></script>
   </head>
   <body>
     <header>
@@ -55,7 +56,7 @@
             <img
               class="star-img"
               src="./assets/icons/star-regular-full.svg"
-              alt="Stern weiß, gefällt mir nicht geklickt"
+              alt="Stern weiß, keinen Stern vergeben."
             />
             <p>
               <span class="count-zero-five" data-base="4,1">4,1</span>
@@ -68,13 +69,11 @@
         </p>
       </section>
 
-      <div class="content-wrapper" >
-      <article class="menu-wrapper" id="menu-container">
-      </article>
-      <article class="basket-wrapper" >
-        <div class="basket" ></div>
-
-      </article>
+      <div class="content-wrapper">
+        <article id="menu-container"></article>
+        <article class="basket-wrapper">
+          <div class="basket"></div>
+        </article>
       </div>
     </main>
 
