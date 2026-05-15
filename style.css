@@ -159,14 +159,6 @@ header{
     flex-grow: 1;
 }
 
-.basket{
-    width: 100%;
-    min-height: 400px;
-    position: sticky;
-    top: 0;
-    background-color: var(--charcoal);
-    border-radius: var(--border-radius-xxlarge) 0 0 var(--border-radius-xxlarge);
-}
 
 h2{
     color: var(--white);

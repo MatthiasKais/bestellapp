@@ -11,12 +11,45 @@
     cursor: pointer;
 }
 
-.single-dish-prize-container button:focus{
-    width: 110px;
+.single-dish-prize-container button:disabled{
+    width: 72px;
     height: 30px;
+    color: var(--dark-orange) !important;
+    opacity: 1 !important;
+    background-color: var(--white);
 }
 
+.basket{
+    width: 100%;
+    min-height: 780px;
+    position: sticky;
+    top: 0;
+    background-color: var(--charcoal);
+    border-radius: var(--border-radius-xxlarge) 0 0 var(--border-radius-xxlarge);
 
-.button-single-dish-pressed{
-    color: black;
+}
+
+.basket-empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--white);
+    font-family: "Palanqui-Medium";
+    text-align: center;
+}
+
+.basket-empty h3{
+    margin-top: 40px;
+    font-size: var(--font-size-xlarge);
+}
+
+.basket-empty p{
+    font-size: var(--font-size-base);
+}
+
+.basket-empty img{
+    margin-top: 40px;
+    margin-left: 60px;
+    width: 120px;
+    height: 120px;
 }

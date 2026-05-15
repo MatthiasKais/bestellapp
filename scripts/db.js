@@ -10,6 +10,7 @@ export const menu = {
           "price": 16.90,
           "image": "assets/imgs/veggie_mushroom_black_burger.png",
           "amount": 0,
+          "id": 0,
         },
         {
           "name": "All meat burger",
@@ -17,6 +18,7 @@ export const menu = {
           "price": 15.90,
           "image": "assets/imgs/all_meat_burger.png",
           "amount": 0,
+          "id": 1,
         },
         {
           "name": "Beef red burger",
@@ -24,6 +26,7 @@ export const menu = {
           "price": 14.90,
           "image": "assets/imgs/beef_red_burger.png",
           "amount": 0,
+          "id": 2,
         },
         {
           "name": "Big chicken burger",
@@ -31,6 +34,7 @@ export const menu = {
           "price": 14.90,
           "image": "assets/imgs/big_chicken_burger.png",
           "amount": 0,
+          "id": 3,
         },
       ],
     },
@@ -44,13 +48,15 @@ export const menu = {
           "price": 11.90,
           "image": "assets/imgs/pizza_margherita.png",
           "amount": 0,
+          "id": 4,
         },
         {
           "name": "Chorizo",
           "description": "Tomato sclices, Mozzarella, Chorizo",
           "price": 13.90,
           "image": "assets/imgs/pizza_chorizo.png",
-          "amount": "0",
+          "amount": 0,
+          "id": 5,
         },
         {
           "name": "Funghi",
@@ -58,6 +64,7 @@ export const menu = {
           "price": 12.90,
           "image": "assets/imgs/pizza_funghi.png",
           "amount": 0,
+          "id": 6,
         },
         {
           "name": "Quattro Formaggi with Chicken",
@@ -65,6 +72,7 @@ export const menu = {
           "price": 15.90,
           "image": "assets/imgs/pizza_quattro_formaggi_with_chicken.png",
           "amount": 0,
+          "id": 7,
         },
       ],
     },
@@ -78,6 +86,7 @@ export const menu = {
           "price": 16.90,
           "image": "assets/imgs/warm_beef_arugula_salad.png",
           "amount": 0,
+          "id": 8,
         },
         {
           "name": "Mini green",
@@ -85,6 +94,7 @@ export const menu = {
           "price": 7.90,
           "image": "assets/imgs/mini_green_salad.png",
           "amount": 0,
+          "id": 9,
         },
         {
           "name": "Green Salad with sea food",
@@ -92,6 +102,7 @@ export const menu = {
           "price": 16.90,
           "image": "assets/imgs/green_salad_with_sea_food.png",
           "amount": 0,
+          "id": 10,
         },
         {
           "name": "Vegan green salad with tofu",
@@ -99,6 +110,7 @@ export const menu = {
           "price": 14.90,
           "image": "assets/imgs/vegan_green_salad_with_tofu.png",
           "amount": 0,
+          "id": 11,
         },
       ],
     },
