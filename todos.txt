@@ -1,4 +1,1 @@
 To-Dos
-
-+Vorlage für "Added 1" 
-+Local Storage einbauen

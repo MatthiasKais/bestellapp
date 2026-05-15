@@ -148,17 +148,28 @@ header{
 .content-wrapper{
     display: flex;
     width: 100%;
-}
+} 
 
 .menu-wrapper{
-    width: calc(100% - 300px);
-}
+    width: calc(100% - 400px);
+} 
 
 .basket-wrapper{
-    width: 300px;
+    width: 400px;
     flex-grow: 1;
 }
 
+
+.basket-wrapper {
+    width: 400px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 2;
+    background-color: transparent;
+}
 
 h2{
     color: var(--white);
