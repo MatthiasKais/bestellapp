@@ -1,21 +1,31 @@
-import {getFromLocalStorage, saveToLocalStorage } from './storage.js';
+import { getFromLocalStorage, saveToLocalStorage } from './storage.js';
 
-
-export function addToBasket(dishId, dishName, dishPrice) {
+export function addToBasket(dishId, dishName, dishPrice, state) {
   let basket = getFromLocalStorage("basket") || {};
 
-  if (basket[dishId]) {
-    basket[dishId].quantity += 1;
-  } else {
+  if (!basket[dishId]) {
     basket[dishId] = {
       id: dishId,
       name: dishName,
       price: dishPrice,
-      quantity: 1,
+      quantity: 0,
     };
   }
 
-  basket[dishId].totalPrice = basket[dishId].price * basket[dishId].quantity;
+  if (state === "add") {
+    basket[dishId].quantity += 1;
+  } else if (state === "remove") {
+    basket[dishId].quantity -= 1;
+    if (basket[dishId].quantity <= 0) {
+      delete basket[dishId];
+    }
+  } else {
+    basket[dishId].quantity = 1;
+  }
+  if (basket[dishId]) {
+    basket[dishId].totalPrice = basket[dishId].price * basket[dishId].quantity;
+  }
+
 
   let total = 0;
   for (const key in basket) {
@@ -26,10 +36,22 @@ export function addToBasket(dishId, dishName, dishPrice) {
   basket.total = total;
   saveToLocalStorage("basket", basket);
 
+  // Aktualisiere den Button
   const button = document.getElementById(`btn-${dishId}`);
-  button.textContent = `Added ${basket[dishId].quantity}`;
-  button.disabled = true;
-  button.style.color = "white";
+  if (button) {
+    if (basket[dishId]) {
+      button.textContent = `Added ${basket[dishId].quantity}`;
+      button.disabled = true;
+      button.style.color = "white";
+    } else {
+      button.textContent = "Add to basket";
+      button.disabled = false;
+      button.style.color = "black";
+    }
+  }
+
 }
 
 window.addToBasket = addToBasket;
+
+

@@ -23,6 +23,7 @@
     width: 100%;
     min-height: 780px;
     position: sticky;
+    z-index: 1;
     top: 0;
     background-color: var(--charcoal);
     border-radius: var(--border-radius-xxlarge) 0 0 var(--border-radius-xxlarge);
@@ -38,7 +39,7 @@
     text-align: center;
 }
 
-.basket-empty h3{
+.basket h3{
     margin-top: 40px;
     font-size: var(--font-size-xlarge);
 }
@@ -49,7 +50,150 @@
 
 .basket-empty img{
     margin-top: 40px;
-    margin-left: 60px;
+    margin-left: 140px;
     width: 120px;
     height: 120px;
+}
+
+.basket-filled{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--white);
+    font-family: "Palanqui-SemiBold";
+    
+}
+
+
+.basket-single-item{
+    font-size: var(--font-size-small);
+    width: 300px;
+    min-height: 100px;
+    color: var(--black);
+    background-color: var(--antique-white);
+    border-radius: var(--border-radius-small);
+    margin-bottom: 8px;
+    padding: 12px;
+}
+
+.basket-single-item button{
+   background: none;
+   color: inherit;
+   border: none;
+   cursor: pointer;
+}
+
+.trash-icon{
+    width: 18px;
+}
+
+.minus-icon{
+    width: 14px;
+}
+
+.add-items{
+    width: 14px;
+}
+
+.basket-total{
+    width: 312px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+}
+
+.basket-total span{
+    min-width: 312px;
+}
+
+.basket-items {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    min-height: 400px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.add-remove-items{
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-remove-items div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 56px;
+}
+
+.add-remove-items div p{
+    font-size: 22px;
+    padding-bottom: 4px;
+}
+
+.dividing-line{
+    border-top: 1px solid var(--white);
+   
+
+}
+
+.basket-items::-webkit-scrollbar {
+    width: 6px;
+    height: 32px;
+}
+
+.basket-items::-webkit-scrollbar-track {
+    background: var(--charcoal);
+    border-radius: 4px;
+}
+
+.basket-items::-webkit-scrollbar-thumb {
+    background: var(--antique-white);
+    border-radius: 4px;
+}
+
+.basket-items::-webkit-scrollbar-thumb:hover {
+    background:var(--dark-orange);
+}
+
+.basket-added-items{
+    margin-right: 12px;
+}
+
+.basket-total div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtotal{
+    font-size: 20px;
+}
+
+.total-price{
+    font-size: 22px;
+}
+
+.checkout-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 320px;
+    height: 60px;
+    margin-top: 12px;
+    font-family: "Palanqui-SemiBold";
+    font-size: 32px;
+    border-radius: var(--border-radius-xxlarge);
+    background-color: var(--dark-orange);
+    color: var(--white);
+    cursor: pointer;
+    border: none;
+}
+
+.checkout-button span{
+    min-width: 130px;
 }
