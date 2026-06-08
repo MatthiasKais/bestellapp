@@ -9,18 +9,22 @@ function init(menu){
 }
 
 
-window.deliveryPlaced = function(menu) {
+window.deliveryPlaced = function() {
     const overlay = document.getElementById("overlay");
-    overlay.classList.remove("hidden"); // Zeige die Meldung
+    overlay.classList.remove("hidden");
     localStorage.clear();
-    render(menu);
-
-    // Verstecke die Meldung nach 3 Sekunden
+    
     setTimeout(() => {
         overlay.classList.add("hidden");
+        window.location.reload();
     }, 3000);
-    
-
+  
 };
+
+document.getElementById("closeButton")?.addEventListener("click", function() {
+  const overlay = document.getElementById("overlay");
+  overlay.classList.add("hidden");
+  window.location.reload(); // Seite neu laden
+});
 
 

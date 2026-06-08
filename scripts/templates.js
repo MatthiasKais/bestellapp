@@ -1,7 +1,17 @@
 import { addToBasket} from "./basket.js";
 import { getFromLocalStorage, saveToLocalStorage, } from "./storage.js";
 
+
 export function render(menu) {
+  // Sofort ausführen, falls DOM bereits geladen ist
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => executeRender(menu));
+  } else {
+    executeRender(menu);
+  }
+}
+
+export function executeRender(menu) {
   document.addEventListener("DOMContentLoaded", () => {
     const menuContainer = document.getElementById("menu-container");
     menuContainer.innerHTML = renderMenu(menu);
@@ -90,7 +100,7 @@ function renderEmptyBasket() {
 
 function renderFilledBasket() {
   const basket = getFromLocalStorage("basket") || {};
-  const basketItems = Object.values(basket).filter(item => item.id); // Filtert nur die Gerichte (nicht "total")
+  const basketItems = Object.values(basket).filter(item => item.id);
 
   if (basketItems.length === 0) {
     return renderEmptyBasket();
@@ -107,7 +117,7 @@ function renderFilledBasket() {
                 <div class="add-remove-items">
                   <div>
                     <button
-                      onclick="addToBasket('${dish.id}', '${dish.name}', ${dish.price}, 'remove'); renderBasket()"
+                      onclick="addToBasket('${dish.id}', '${dish.name}', ${dish.price}, 'remove'); window.renderBasket()"
                     >
                     <img
                       id="img-trash-minus-${dish.id}"
