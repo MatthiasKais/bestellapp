@@ -28,3 +28,16 @@ document.getElementById("closeButton")?.addEventListener("click", function() {
 });
 
 
+
+// scripts.js oder basket.js
+document.addEventListener('DOMContentLoaded', () => {
+  const basketToggle = document.getElementById('basket-toggle');
+  const basketWrapper = document.querySelector('.basket-wrapper');
+  const overlay = document.getElementById('overlay');
+
+  basketToggle.addEventListener('click', () => {
+    basketWrapper.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
+  });
+});
+

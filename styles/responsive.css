@@ -15,4 +15,32 @@
   }
 }
 
+/* responsive.css oder standard.css */
+@media (max-width: 768px) {
+  .basket-wrapper {
+    display: none; /* Basket-Wrapper ausblenden */
+  }
 
+  #menu-container {
+    width: 100%; /* Menu-Container nimmt gesamte Breite ein */
+  }
+
+  /* Bottom-Navigation-Bar hinzufügen */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white; /* oder dein Design */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .bottom-nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
