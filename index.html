@@ -3,32 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Bestell App</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="./assets/icons/bestellapp_logo_2.svg"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./styles/fonts.css" />
-    <link rel="stylesheet" href="./styles/responsive.css" />
-    <link rel="stylesheet" href="./styles/standard.css" />
-    <link rel="stylesheet" href="./styles/variables.css" />
-    <link rel="stylesheet" href="./styles/assets.css" />
-    <script type="module" src="./scripts.js"></script>
-    <script type="module" src="./scripts/basket.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="scripts.js"></script>
+    <title>BestellApp</title>
   </head>
-  <body>
-    <header>
-      <div class="main-header">
+  <body onload="init(menu)">
+    <header class="header">
+      <div class="header__nav">
         <img
-          class="header-img"
-          src="./assets/icons/bestellapp_logo_2.svg"
+          class="header__img header__img--none"
+          src="./assets/icons/bestellapp_logo_1.svg"
           alt="Logo Bestellapp"
         />
         <img
-          class="header-img"
+          class="header__img"
           src="./assets/icons/menu_logo.svg"
           alt="Menü ist ein Platzhalter"
         />
@@ -36,70 +24,96 @@
     </header>
 
     <main>
-      <div class="top-images">
-        <img class="background-img" src="./assets/imgs/hero.png" alt="" />
+      <div class="hero-stack">
+        <img class="hero-stack__background" src="./assets/imgs/hero.png" />
         <img
-          class="burger-img"
+          class="hero-stack__foreground"
           src="./assets/imgs/burgerhouse_logo.png"
-          alt=""
         />
       </div>
 
-      <section class="section-headline">
-        <div class="burgerHouse-container">
+      <section class="headline">
+        <div class="headline__container">
           <h1>
-            <span class="word-BurgerHouse word-burger">Burger</span
-            ><span class="word-BurgerHouse">House</span>
+            <span class="headline__title-word headline__title-word--burger"
+              >Burger</span
+            ><span class="headline__title-word">House</span>
           </h1>
-          <button class="stars-button">
+          <button class="headline__rating">
             <img
-              class="star-img"
+              class="headline__rating-icon"
               src="./assets/icons/star-regular-full.svg"
               alt="Stern weiß, keinen Stern vergeben."
             />
             <p>
-              <span class="count-zero-five" data-base="4,1">4,1</span>
-              <span class="total-count" data-base="317">(317)</span>
+              <span class="headline__rating-value" data-base="4,1">4,1</span>
+              <span class="headline__rating-count" data-base="317">(317)</span>
             </p>
           </button>
         </div>
-        <p class="sentence-headline">
+        <p class="headline__subtitle">
           The best Burgers, Pizza, and Greens, all in one great place
         </p>
       </section>
 
-      <div class="content-wrapper">
-        <article id="menu-container"></article>
-        <aside class="basket-wrapper" id="basket-container"></aside>
+      <div class="content__wrapper">
+        <section id="menu-container" class="menu__section"></section>
+        <aside id="desktop-basket-container" class="basket__section"></aside>
       </div>
 
-      <div id="overlay" class="hidden">
-        <div id="messageBox">
-          <button id="closeButton">
+      <!-- Overlay für Bestellbestätigung -->
+      <div class="overlay overlay--hidden">
+        <div class="overlay__message-box message-box">
+          <button class="message-box__close-button" id="closeButton">
             <img src="assets/icons/x-symbol.svg" alt="Close Button" />
           </button>
-          <img class="messageBox-img" src="assets/icons/delivery_car.svg" />
-          <p class="order-confirmed">Order confirmed!</p>
-          <p class="on-your-way">Your food is on the way!</p>
+          <img
+            class="message-box__image"
+            src="assets/icons/delivery_car.svg"
+            alt="Delivery Car"
+          />
+          <p class="message-box__text message-box__text--confirmed">
+            Order confirmed!
+          </p>
+          <p class="message-box__text message-box__text--on-the-way">
+            Your food is on the way!
+          </p>
         </div>
       </div>
-      <div class="bottom-nav">
-        <button id="basket-toggle">
-          <img src="./assets/icons/basket-icon.svg" alt="Warenkorb anzeigen" />
+
+      <!-- Mobile-Warenkorb-Overlay -->
+      <div id="basket-overlay" class="basket-overlay basket-overlay--hidden">
+        <div id="mobile-basket-container" class="basket__section"></div>
+      </div>
+
+      <!-- Bottom-Nav -->
+      <div class="bottom__nav">
+        <img
+          class="bottom-nav__basket-toggle-icon"
+          src="./assets/icons/Home.svg"
+          alt="Home-Button"
+        />
+        <img src="assets/icons/Profile.svg" alt="Profil anzeigen" />
+        <img src="assets/icons/orders.svg" alt="Bestellungen anzeigen" />
+        <button id="button-toggle" class="bottom__nav--button">
+          <img
+            src="assets/icons/shopping_cart.svg"
+            alt="Warenkorb anzeigen"
+          />
         </button>
       </div>
     </main>
 
-    <footer>
-      <div class="main-footer">
-        <p class="copyright-footer-container">
-          <span class="copyright-logo"
+    <footer class="footer">
+      <div class="footer__text">
+        <p class="footer_description">
+          <span class="footer__img"
             ><img src="./assets/icons/copyright.svg" alt="Copyright Logo" />
           </span>
-          BurgerHouse
+          2026 BurgerHouse
         </p>
-        <p>Imprint</p>
-        <p>Cookie Preferences</p>
+        <p class="footer_description">Imprint</p>
+        <p class="footer_description">Cookie Preferences</p>
       </div>
     </footer>
   </body>

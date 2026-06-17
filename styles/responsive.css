@@ -1,46 +1,416 @@
 @media (max-width: 425px) {
-  .background-img {
-    height: 280px; /* Kürzere Höhe auf kleinen Bildschirmen */
-    min-height: 200px;
+  .hero-stack {
+    margin-top: 20px;
+    width: 300px;
+  }
+  .hero-stack__background {
+    height: 300px;
+    width: 310px;
+    object-fit: cover;
+    border-radius: 12px;
   }
 
-  .top-images {
-    height: 50vh;
-  }
-
-  .burger-img {
-    height: 140px; /* Kleineres Logo auf kleinen Bildschirmen */
-    top: 210px;
+  .hero-stack__foreground {
+    height: 140px;
+    top: 360px;
     left: max(50% - 70px, 2rem);
   }
-}
 
-/* responsive.css oder standard.css */
-@media (max-width: 768px) {
-  .basket-wrapper {
-    display: none; /* Basket-Wrapper ausblenden */
+  .header__nav {
+    max-width: 100%;
   }
 
-  #menu-container {
-    width: 100%; /* Menu-Container nimmt gesamte Breite ein */
+  .header__img--none {
+    display: none;
   }
 
-  /* Bottom-Navigation-Bar hinzufügen */
-  .bottom-nav {
+  .headline {
+    padding-top: 100px;
+    padding-bottom: 20px;
+  }
+
+  .headline__container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    gap: 0px;
+  }
+
+  .headline__title-word,
+  .headline__title-word--burger {
+    font-size: var(--font-size-xlarge);
+  }
+
+  .headline__subtitle {
+    font-size: var(--font-size-small);
+    text-align: center;
+    width: 300px;
+    line-height: 24px;
+  }
+
+  .dish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+  }
+
+  .dish__container {
+    width: 300px;
+  }
+
+  .dish__img {
+    object-fit: cover;
+    width: 90%;
+    height: 80px;
+    margin-top: 14px;
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 12px;
+  }
+
+  .dish__name {
+    margin-left: 5%;
+    margin-right: 5%;
+    line-height: 24px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    width: 90%;
+    overflow-wrap: break-word;
+  }
+
+  .dish__description {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .dish__price-container {
+    flex-direction: row;
+    width: 90%;
+  }
+
+  .dish__price {
+    margin-bottom: 18px;
+  }
+
+  .dish__add-button {
+    margin-right: 0;
+  }
+
+  .menu__img {
+    height: 60px;
+  }
+
+  .menu__container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding: 0 1rem;
+  }
+
+  .menu__section {
+    width: 100%;
+  }
+
+  .menu__header {
+    width: 100%;
+    margin-top: 12px;
+    height: 100px;
+    background: linear-gradient(
+      to bottom,
+      var(--white) 50%,
+      var(--dark-orange) 50%
+    );
+  }
+
+  .menu__title {
+    font-size: 28px;
+    line-height: 30px;
+  }
+
+  .basket__section {
+    display: none;
+  }
+
+  .bottom-nav__basket-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .bottom-nav__basket-toggle-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .bottom__nav--hidden {
+    display: flex;
+  }
+
+  .bottom__nav--button {
+    display: block;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  .bottom__nav {
+    height: 80px;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: white; /* oder dein Design */
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--charcoal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+  }
+
+  .footer {
+    height: 200px;
+  }
+
+  .footer__text {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 56px;
+  }
+
+  .footer_description {
+    margin-left: 0;
+    margin-bottom: 12px;
+  }
+
+  /* Overlay für den Warenkorb */
+  .basket-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
     z-index: 1000;
   }
 
-  .bottom-nav button {
+  .basket-overlay--hidden {
+    display: none !important;
+  }
+
+  .basket__section {
+    width: 100%;
+    overflow-y: auto;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .basket-overlay {
+    position: fixed;
+    bottom: 80px; /* Höhe der Bottom-Nav (80px) */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 80px); /* Volle Höhe minus Bottom-Nav */
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Ausrichtung am unteren Rand */
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+
+  .basket {
+    width: 300px;
+    min-height: 300px;
+  }
+
+  .basket--filled {
+    width: 300px;
+    height: 600px;
+  }
+
+  .content__wrapper {
+    max-width: 100%;
+    display: block;
+  }
+
+  .menu__section {
+    width: 100% !important;
+  }
+
+  #desktop-basket-container {
+    display: none !important;
+  }
+
+  /* Mobile-Warenkorb im Overlay */
+  #mobile-basket-container {
+    width: 100%;
+    max-width: none;
+    min-height: 300px; /* Mindesthöhe für beide Zustände */
+    background-color: var(--charcoal);
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  /* Warenkorb-Inhalt zentrieren */
+  #mobile-basket-container .basket {
+    width: 100%; /* Volle Breite des Containers */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert den Inhalt horizontal */
+    overflow-y: hidden;
+    padding: 0 10px; /* Optional: Leichter Padding für bessere Lesbarkeit */
+    box-sizing: border-box;
+  }
+
+  /* Warenkorb-Titel zentrieren */
+  #mobile-basket-container .basket__title {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Warenkorb-Liste anpassen */
+  #mobile-basket-container .basket__items {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+    min-height: 300px;
+    max-height: 300px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* Warenkorb-Elemente anpassen */
+  #mobile-basket-container .basket__item {
+    width: 100%;
+    margin-right: 0; /* Rechtsrand entfernen */
+    margin-bottom: 10px;
+  }
+
+  /* Warenkorb-Item-Details anpassen */
+  #mobile-basket-container .basket__item-details {
+    width: 100%;
+    min-height: auto;
+    color: var(--black);
+    background-color: var(--antique-white);
+    border-radius: var(--border-radius-small);
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  /* Warenkorb-Total anpassen */
+  #mobile-basket-container .basket__total {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Warenkorb-Total-Zeilen anpassen */
+  #mobile-basket-container .basket__total-line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+  }
+
+  /* Warenkorb-Checkout-Button anpassen */
+  #mobile-basket-container .basket__checkout-button {
+    width: 100%;
+    margin-top: 10px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .basket__headline,
+  .basket__title {
+    margin-top: 0;
+  }
+
+  .basket__total-line {
+    line-height: 24px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.7
+    ); /* Dunklerer Hintergrund für bessere Lesbarkeit */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Höher als das Warenkorb-Overlay (z-index: 1000) */
+  }
+
+  /* Message-Box anpassen */
+  .message-box {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--charcoal);
+    color: var(--peach);
+    font-family: "Palanqui-SemiBold";
+    padding: 15px;
+    border-radius: var(--border-radius-small);
+    width: 90%;
+    max-width: 320px; 
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Close-Button der Message-Box */
+  .message-box__close-button {
+    display: flex;
+    justify-content: flex-end;
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0;
+    margin: 0 0 10px auto;
+  }
+
+  .message-box__close-button img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Bild in der Message-Box */
+  .message-box__image {
+    margin: 10px auto;
+    height: 48px; /* Kleinere Größe für Mobile */
+  }
+
+  /* Texte in der Message-Box */
+  .message-box__text {
+    margin: 5px 0;
+    font-size: 18px; /* Kleinere Schriftgröße */
+    line-height: 1.4;
+  }
+
+  .message-box__text--confirmed {
+    font-size: 24px; /* Etwas größer für die Bestätigung */
+    height: auto;
+    line-height: 1.4;
+  }
+
+  .message-box__text--on-the-way {
+    font-size: 18px;
   }
 }

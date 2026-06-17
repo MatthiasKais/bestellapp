@@ -1,43 +1,87 @@
-import {menu} from "./scripts/db.js";
-import {render} from "./scripts/templates.js";
-import {saveToLocalStorage, getFromLocalStorage} from "./scripts/storage.js";
+import { menu } from "./scripts/db.js";
+import { renderMenu, renderBasket } from "./scripts/templates.js";
+import { saveToLocalStorage, getFromLocalStorage } from "./scripts/storage.js";
 
-init(menu);
+window.menu = menu;
 
-function init(menu){
-  render(menu)
-}
-
-
-window.deliveryPlaced = function() {
-    const overlay = document.getElementById("overlay");
-    overlay.classList.remove("hidden");
-    localStorage.clear();
-    
-    setTimeout(() => {
-        overlay.classList.add("hidden");
-        window.location.reload();
-    }, 3000);
-  
+// Initialisierung
+window.init = function (menu) {
+  renderMenu(menu);
+  renderBasket();
+  localStorage.clear();
 };
 
-document.getElementById("closeButton")?.addEventListener("click", function() {
-  const overlay = document.getElementById("overlay");
-  overlay.classList.add("hidden");
-  window.location.reload(); // Seite neu laden
+// Bestellbestätigung
+window.showOrderConfirmation = function() {
+  const overlay = document.querySelector(".overlay");
+  if (overlay) {
+    overlay.classList.remove("overlay--hidden");
+    localStorage.clear();
+
+    setTimeout(() => {
+      overlay.classList.add("overlay--hidden");
+      window.location.reload();
+    }, 3000);
+  }
+};
+
+// Close-Button für die Message-Box
+document.querySelector(".message-box__close-button")?.addEventListener("click", function() {
+  const overlay = document.querySelector(".overlay");
+  if (overlay) {
+    overlay.classList.add("overlay--hidden");
+    localStorage.clear();
+    const mobileContainer = document.getElementById("mobile-basket-container");
+    const desktopContainer = document.getElementById("desktop-basket-container");
+    if (mobileContainer) renderEmptyBasket(mobileContainer);
+    if (desktopContainer) renderEmptyBasket(desktopContainer);
+  }
 });
 
-
-
-// scripts.js oder basket.js
+// Event-Listener für den Warenkorb-Button (nur einmal registrieren)
 document.addEventListener('DOMContentLoaded', () => {
-  const basketToggle = document.getElementById('basket-toggle');
-  const basketWrapper = document.querySelector('.basket-wrapper');
-  const overlay = document.getElementById('overlay');
-
-  basketToggle.addEventListener('click', () => {
-    basketWrapper.classList.toggle('hidden');
-    overlay.classList.toggle('hidden');
-  });
+  const toggleButton = document.getElementById('button-toggle');
+  if (toggleButton) {
+    toggleButton.addEventListener('click', () => {
+      const basketOverlay = document.getElementById('basket-overlay');
+      if (basketOverlay) {
+        basketOverlay.classList.toggle('basket-overlay--hidden');
+        if (!basketOverlay.classList.contains('basket-overlay--hidden')) {
+          renderBasket();
+        }
+      }
+    });
+  }
 });
 
+// Funktion, um den Warenkorb basierend auf der Bildschirmgröße neu zu rendern
+function handleResize() {
+  const basket = getFromLocalStorage("basket") || {};
+  const basketItems = Object.values(basket).filter(item => item.id);
+
+  const isMobile = window.innerWidth <= 425;
+
+  const desktopContainer = document.getElementById("desktop-basket-container");
+  const mobileContainer = document.getElementById("mobile-basket-container");
+
+  if (desktopContainer) {
+    desktopContainer.style.display = isMobile ? "none" : "block";
+  }
+
+  if (mobileContainer) {
+    mobileContainer.style.display = isMobile ? "block" : "none";
+  }
+
+  if (basketItems.length > 0 || !isMobile) {
+    renderBasket();
+  }
+}
+
+// Event-Listener für das Ändern der Bildschirmgröße
+window.addEventListener("resize", handleResize);
+
+// Initialen Aufruf von handleResize
+handleResize();
+
+// Initialisierung aufrufen
+window.init(menu);

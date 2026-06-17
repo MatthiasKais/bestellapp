@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    /* border: solid 2px red !important */
 }
 
 body {
@@ -19,22 +20,3 @@ main {
   align-items: center;
 }
 
-img {
-  display: block;
-}
-
-button {
-    all: unset; 
-    cursor: pointer; 
-    display: inline-block; 
-    text-align: center; 
-    padding: 0; 
-    margin: 0; 
-    border: none; 
-    background: none; 
-    font: inherit; 
-    color: inherit; 
-    appearance: none; 
-    -webkit-appearance: none; 
-    -moz-appearance: none;
-}

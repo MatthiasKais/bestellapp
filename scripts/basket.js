@@ -36,7 +36,11 @@ export function addToBasket(dishId, dishName, dishPrice, state) {
   basket.total = total;
   saveToLocalStorage("basket", basket);
 
-  // Aktualisiere den Button
+  buttonActualState(basket, dishId);
+
+};
+
+function buttonActualState(basket, dishId){
   const button = document.getElementById(`btn-${dishId}`);
   if (button) {
     if (basket[dishId]) {
@@ -49,9 +53,10 @@ export function addToBasket(dishId, dishName, dishPrice, state) {
       button.style.color = "black";
     }
   }
+};
 
-}
+
+
 
 window.addToBasket = addToBasket;
-
 
