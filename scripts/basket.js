@@ -40,20 +40,20 @@ export function addToBasket(dishId, dishName, dishPrice, state) {
 
 };
 
-function buttonActualState(basket, dishId){
+function buttonActualState(basket, dishId) {
   const button = document.getElementById(`btn-${dishId}`);
-  if (button) {
-    if (basket[dishId]) {
-      button.textContent = `Added ${basket[dishId].quantity}`;
-      button.disabled = true;
-      button.style.color = "white";
-    } else {
-      button.textContent = "Add to basket";
-      button.disabled = false;
-      button.style.color = "black";
-    }
+  if (!button) return;
+
+  // Standardzustand
+  button.textContent = "Add to basket";
+  button.classList.remove("dish__add-button--added");
+
+  // Falls im Warenkorb
+  if (basket?.[dishId]) {
+    button.textContent = `Added ${basket[dishId].quantity}`;
+    button.classList.add("dish__add-button--added");
   }
-};
+}
 
 
 

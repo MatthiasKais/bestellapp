@@ -215,7 +215,8 @@
 }
 
 .dish__add-button {
-  width: 110px;
+  text-align: center;
+  min-width: 120px;
   height: 30px;
   border: none;
   background-color: var(--white);
@@ -227,16 +228,7 @@
   cursor: pointer;
 }
 
-.dish__add-button:disabled {
-  width: 72px;
-  height: 30px;
-  color: var(--dark-orange) !important;
-  opacity: 1 !important;
-  background-color: var(--white);
-}
-
 .basket {
-
   width: 100%;
   min-height: 780px;
   align-self: start;
@@ -509,3 +501,10 @@
   height: 24px;
   vertical-align: middle;
 }
+
+.dish__add-button--added{
+  color: var(--dark-orange);
+  min-width: 80px;
+
+}
+
