@@ -57,7 +57,7 @@ export function renderBasket() {
   const basketItems = Object.values(basket).filter(item => item.id);
 
   // Prüfe, ob wir auf Mobile sind
-  const isMobile = window.innerWidth <= 425;
+  const isMobile = window.innerWidth <= 1024;
 
   // Wähle den richtigen Container
   const basketContainer = isMobile
@@ -150,7 +150,7 @@ function updateBasketItem(dishId) {
   saveToLocalStorage("basket", basket);
 
   const basketItems = Object.values(basket).filter(item => item.id);
-  const isMobile = window.innerWidth <= 425;
+  const isMobile = window.innerWidth <= 1024;
   const container = isMobile
     ? document.getElementById("mobile-basket-container")
     : document.getElementById("desktop-basket-container");

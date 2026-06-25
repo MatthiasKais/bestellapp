@@ -4,14 +4,12 @@ import { saveToLocalStorage, getFromLocalStorage } from "./scripts/storage.js";
 
 window.menu = menu;
 
-// Initialisierung
 window.init = function (menu) {
   renderMenu(menu);
   renderBasket();
   localStorage.clear();
 };
 
-// Bestellbestätigung
 window.showOrderConfirmation = function() {
   const overlay = document.querySelector(".overlay");
   if (overlay) {
@@ -25,7 +23,6 @@ window.showOrderConfirmation = function() {
   }
 };
 
-// Close-Button für die Message-Box
 document.querySelector(".message-box__close-button")?.addEventListener("click", function() {
   const overlay = document.querySelector(".overlay");
   if (overlay) {
@@ -38,13 +35,12 @@ document.querySelector(".message-box__close-button")?.addEventListener("click", 
   }
 });
 
-// Event-Listener für den Warenkorb-Button (nur einmal registrieren)
 document.addEventListener('DOMContentLoaded', () => {
   const toggleButton = document.getElementById('button-toggle');
   if (toggleButton) {
     toggleButton.addEventListener('click', () => {
       const basketOverlay = document.getElementById('basket-overlay');
-      if (basketOverlay) {
+      if (basketOverlay && window.innerWidth <= 1024) {
         basketOverlay.classList.toggle('basket-overlay--hidden');
         if (!basketOverlay.classList.contains('basket-overlay--hidden')) {
           renderBasket();
@@ -54,22 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Funktion, um den Warenkorb basierend auf der Bildschirmgröße neu zu rendern
 function handleResize() {
   const basket = getFromLocalStorage("basket") || {};
   const basketItems = Object.values(basket).filter(item => item.id);
 
-  const isMobile = window.innerWidth <= 425;
+  const isMobile = window.innerWidth <= 1024;
 
   const desktopContainer = document.getElementById("desktop-basket-container");
   const mobileContainer = document.getElementById("mobile-basket-container");
+  const basketOverlay = document.getElementById("basket-overlay");
+  const toggleButton = document.getElementById("button-toggle");
 
   if (desktopContainer) {
     desktopContainer.style.display = isMobile ? "none" : "block";
   }
-
   if (mobileContainer) {
     mobileContainer.style.display = isMobile ? "block" : "none";
+  }
+
+  if (toggleButton) {
+    toggleButton.style.display = isMobile ? "block" : "none";
+  }
+
+  if (basketOverlay) {
+    basketOverlay.classList.add('basket-overlay--hidden');
   }
 
   if (basketItems.length > 0 || !isMobile) {
@@ -77,11 +81,11 @@ function handleResize() {
   }
 }
 
-// Event-Listener für das Ändern der Bildschirmgröße
+
+
+window.addEventListener("load", handleResize);
 window.addEventListener("resize", handleResize);
 
-// Initialen Aufruf von handleResize
 handleResize();
 
-// Initialisierung aufrufen
 window.init(menu);

@@ -120,6 +120,8 @@
 
 .menu__dishes{
   margin-bottom: 48px;
+  padding-left: 8px;
+  margin-right: 8px;
 }
 
 .menu__section--container {
@@ -143,15 +145,32 @@
   display: flex;
   align-items: center;
   width: 100%;
+  position: relative; /* Wichtig für das Pseudoelement */
+}
+
+.menu__container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 0 100vmax var(--dark-orange);
+  clip-path: inset(0 -100vmax);
+  z-index: 1;
 }
 
 .menu__img {
+  position: relative;
+  z-index: 2; /* Bild liegt über dem Pseudoelement */
   max-width: 100%;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .menu__title {
+  position: relative;
+  z-index: 2; /* Titel liegt ebenfalls über dem Pseudoelement */
   color: var(--white);
   font-size: 42px;
   font-family: "Palanqui";
@@ -171,7 +190,9 @@
 }
 
 .dish__container {
-  min-width: 50%;
+  width: 100%;
+  min-width: 40%;
+  max-width: 50%;
 }
 
 .dish:hover {
@@ -215,8 +236,8 @@
 }
 
 .dish__add-button {
-  text-align: center;
-  min-width: 120px;
+  width: 110px;
+  min-width: 110px;
   height: 30px;
   border: none;
   background-color: var(--white);
@@ -228,7 +249,22 @@
   cursor: pointer;
 }
 
+.dish__add--button--small{
+  min-width: 90px;
+  max-width: 90px;
+  color: var(--dark-orange);
+}
+
+.dish__add-button:disabled {
+  width: 72px;
+  height: 30px;
+  color: var(--dark-orange) !important;
+  opacity: 1 !important;
+  background-color: var(--white);
+}
+
 .basket {
+
   width: 100%;
   min-height: 780px;
   align-self: start;
@@ -500,11 +536,5 @@
 .footer__img {
   height: 24px;
   vertical-align: middle;
-}
-
-.dish__add-button--added{
-  color: var(--dark-orange);
-  min-width: 80px;
-
 }
 

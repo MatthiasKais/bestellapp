@@ -58,6 +58,7 @@
 
   .dish__container {
     width: 300px;
+    max-width: 100%;
   }
 
   .dish__img {
@@ -253,6 +254,8 @@
 
   /* Mobile-Warenkorb im Overlay */
   #mobile-basket-container {
+    display: flex;
+    justify-content: center;
     width: 100%;
     max-width: none;
     min-height: 300px; /* Mindesthöhe für beide Zustände */
@@ -370,7 +373,7 @@
     padding: 15px;
     border-radius: var(--border-radius-small);
     width: 90%;
-    max-width: 320px; 
+    max-width: 320px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
@@ -391,26 +394,331 @@
     height: 20px;
   }
 
-  /* Bild in der Message-Box */
   .message-box__image {
     margin: 10px auto;
-    height: 48px; /* Kleinere Größe für Mobile */
+    height: 48px;
   }
 
-  /* Texte in der Message-Box */
   .message-box__text {
     margin: 5px 0;
-    font-size: 18px; /* Kleinere Schriftgröße */
+    font-size: 18px;
     line-height: 1.4;
   }
 
   .message-box__text--confirmed {
-    font-size: 24px; /* Etwas größer für die Bestätigung */
+    font-size: 24px;
     height: auto;
     line-height: 1.4;
   }
 
   .message-box__text--on-the-way {
     font-size: 18px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 1024px) {
+  .content__wrapper {
+    max-width: 100%;
+    display: block;
+  }
+
+  .menu__section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding: 0 1rem;
+  }
+
+  #desktop-basket-container {
+    display: none !important;
+  }
+
+  .bottom-nav__basket-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .bottom-nav__basket-toggle-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .bottom__nav--hidden {
+    display: flex;
+  }
+
+  .bottom__nav--button {
+    display: block;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  .bottom__nav {
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--charcoal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+  }
+
+  #mobile-basket-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer {
+    height: 140px;
+  }
+
+  .footer__text {
+    margin-bottom: 70px;
+  }
+
+  .basket-overlay {
+    position: fixed;
+    bottom: 80px; /* Höhe der Bottom-Nav (80px) */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 80px); /* Volle Höhe minus Bottom-Nav */
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Ausrichtung am unteren Rand */
+    z-index: 1000;
+    /* Standardmäßig versteckt */
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  /* Overlay wird sichtbar, wenn die Klasse entfernt wird */
+  .basket-overlay:not(.basket-overlay--hidden) {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Mobile-Warenkorb-Container */
+  #mobile-basket-container {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    min-height: 300px;
+    background-color: var(--charcoal);
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin: 0;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  .dish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 260px;
+    width: 100%;
+  }
+
+  .menu__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    padding: 0 1rem;
+  }
+
+  .memu__img {
+    margin-left: 0;
+  }
+
+  .menu__header {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .headline__title-word,
+  .headline__title-word--burger {
+    font-size: var(--font-size-xlarge);
+  }
+
+  .headline__subtitle {
+    font-size: var(--font-size-small);
+    text-align: center;
+    width: 300px;
+    line-height: 24px;
+  }
+
+  .menu__dishes {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: 0;
+  }
+
+  .dish__container {
+    width: 300px;
+    max-width: 100%;
+  }
+
+  .dish__img {
+    object-fit: cover;
+    width: 90%;
+    height: 80px;
+    margin-top: 14px;
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 12px;
+  }
+
+  .dish__name {
+    margin-left: 5%;
+    margin-right: 5%;
+    line-height: 24px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    width: 90%;
+    overflow-wrap: break-word;
+  }
+
+  .dish__description {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .dish__price-container {
+    flex-direction: row;
+    width: 90%;
+  }
+
+  .dish__price {
+    margin-bottom: 18px;
+  }
+
+  .dish__add-button {
+    margin-right: 0;
+  }
+
+  .dish__container {
+    width: 100%;
+  }
+
+  .menu__img {
+    height: 80px;
+  }
+
+  .menu__container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .menu__section {
+    width: 100%;
+    padding: 0;
+  }
+
+  .menu__header {
+    width: 100%;
+    margin-top: 12px;
+    height: 140px;
+    background: linear-gradient(
+      to bottom,
+      var(--white) 50%,
+      var(--dark-orange) 50%
+    );
+  }
+
+  .menu__title {
+    font-size: 42px;
+    line-height: 30px;
+  }
+
+  .menu__container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    box-shadow: none;
+    clip-path: none;
+    z-index: 1;
+  }
+
+  .headline__container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    gap: 0px;
+  }
+
+  .headline {
+    padding-top: 100px;
+    padding-bottom: 20px;
+  }
+
+  .basket__section {
+    display: none;
+  }
+
+  .bottom-nav__basket-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .bottom-nav__basket-toggle-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .bottom__nav--hidden {
+    display: flex;
+  }
+
+  .bottom__nav--button {
+    display: block;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  .bottom__nav {
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--charcoal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
   }
 }
